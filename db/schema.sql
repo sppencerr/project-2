@@ -1,3 +1,4 @@
-DROP DATABASE IF EXISTS
+-- drop and create database 
+DROP DATABASE IF EXISTS minka_db;
 
-CREATE DATABASE
+CREATE DATABASE minka_db;
