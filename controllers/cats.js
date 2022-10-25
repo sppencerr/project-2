@@ -5,10 +5,10 @@ getAllCats = async (req, res, next) => {
     try {
         let categories = await Category.getAll();
         res.render('categories', {
-            categories:categories,
+            categories: categories,
             title:"Categories",
             user: req.session.user,
-            currnetPath: req.baseUrl,
+            currentPath: req.baseUrl,
             error:''
         });
     } catch (error) {
