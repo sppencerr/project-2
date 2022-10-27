@@ -1,6 +1,6 @@
 {
     "server": {
-        "port": 3333
+        "port": 3306
     },
     "mysql":{
         "host": "localhost",
