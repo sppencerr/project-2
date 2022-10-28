@@ -10,7 +10,7 @@ const sequelize = process.env.LOCKDB_URL
       {
         host: "localhost",
         dialect: "mysql",
-        port: 3333,
+        port: 3306,
       }
     );
 
