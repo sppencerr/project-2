@@ -1,3 +1,5 @@
+// ? Set routes to ---> /api? or do we need a "homeRoute" directory?
+
 const router = require('express').Router();
 
 const apiRoutes = require('./api/');

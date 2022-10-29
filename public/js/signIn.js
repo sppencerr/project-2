@@ -1,3 +1,5 @@
+// ? Possible to remove/drop 'username'? Other docs only tracking email and password as credentials
+
 let modal = document.querySelector('#error-modal');
 let text = document.querySelector('#error-text')
 let closeBtn = document.querySelector('#close-modal');
