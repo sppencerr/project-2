@@ -1,12 +1,14 @@
 const router = require('express').Router();
 
+const apiRoutes = require('./api');
+const userRoutes = require('./userRoutes');
+const postRoutes = require('./postRoutes');
+const homeRoutes = require('./homeRoutes');
+const catRoutes = require('./catRoutes');
 
-// !Commented out for troubleshooting server launch
-// !Once DB is ready, uncomment 6-10
-// const userRoutes = require('./userRoutes');
-// const postRoutes = require('./postRoutes');
-
-// router.use('/users', userRoutes);
-// router.use('/projects', postRoutes);
+router.use('/users', userRoutes);
+router.use('/projects', postRoutes);
+router.use('/api', apiRoutes);
+router.use('/cats',catRoutes);
 
 module.exports = router;
