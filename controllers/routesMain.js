@@ -9,7 +9,7 @@ router.get('/', async (req,res) =>{
     const notes = noteData.map((note) => note.get
         ({ plain: true }));
         // ! send to dashboard? unsure of 'notes' below
-        res.render('dash', { notes }); 
+        res.render('login', { notes }); 
     });
 
 
