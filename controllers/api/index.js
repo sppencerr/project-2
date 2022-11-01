@@ -8,7 +8,7 @@ const catRoutes = require('./catRoutes');
 
 // router.use('/users', userRoutes);
 // router.use('/projects', postRoutes);
-router.use('/api', apiRoutes);
-router.use('/cats',catRoutes);
+router.use('./api', apiRoutes);
+router.use('./cats',catRoutes);
 
 module.exports = router;
