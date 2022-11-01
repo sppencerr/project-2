@@ -1,8 +1,7 @@
 # MINKA
-
 ## Welcome to Minka - Make Yourself at Home 
 
-# Criteria:
+# Criteria
 ## Our team was tasked with building out a full-stack application by combining the following criteria:
 ### Must use Node.js and Express.js to create a RESTful API
 ### Must use Handlebars.js as a template engine
@@ -12,7 +11,7 @@
 ### Must include authentication (express-session and cookies)
 ### Must protect API keys and sensitive information with environmental variables
 
-# Contributions:
+# Contributions
 ### Each team member covered a variety of duties- ranging from database work to styling pages to file structure
 
 # Technologies Used
@@ -21,3 +20,4 @@
 # Deployed Project
 
 # Screenshot
+
