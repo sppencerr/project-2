@@ -5,7 +5,7 @@
     "mysql":{
         "host": "localhost",
         "user": "root",
-        "password": "",
+        "password": "Jazzy#24",
         "database": "node_db"
     }
 }
