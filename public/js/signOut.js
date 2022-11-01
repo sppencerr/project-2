@@ -1,16 +1,16 @@
-// Handle logging out the user
-const logout = async () => {
-	const response = await fetch( '/api/users/logout', {
-		method: 'POST',
-		headers: { 'Content-Type': 'application/json' },
-	} );
+async function logout() {
+    const response = await fetch('/api/users/logout', {
+        method: 'post',
+        headers: { 'Content-Type': 'application/json' }
+    });
 
-	if ( response.ok ) {
-		document.location.replace( '/' );
-	} else {
-		alert( response.statusText );
-	}
-};
-
-// Listen for the logout click
-document.querySelector( '#logout' ).addEventListener( 'click', logout );
+    if (response.ok) {
+        sessionStorage.setItem('status', null)
+        document.location.replace('/');
+    } else {
+        displayModal(response.statusText);
+        // alert(response.statusText);
+    }
+}
+  
+document.querySelector('#logout').addEventListener('click', logout);

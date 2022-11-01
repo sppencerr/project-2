@@ -5,32 +5,38 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Minka</title>
-    
+    <!-- Static public css files -->
+    <link rel="stylesheet" href="/public/css/reset.css">
+    <link rel="stylesheet" href="/public/css/style.css">
 </head>
+
 <body>
-    <div class="wrapper">
-        <header>
-            <h1>
-                <a href="/">Minka</a>
-            </h1>
-            <nav>
-                {{#if loggedIn}}
-                <a href="/dash">dashboard</a>
-                <button id="signOut" class="">logout</button>
-                {{else}}
-                <a href="/signIn">Sign in</a>
-                {{/if}}
-            </nav>
-        </header>
-        <main>
-            {{{ body }}}
-        </main>
-        <footer>
-            Welcome!
-        </footer>
-    </div>
-    {{#if loggedIn}}
-    <script src="/public/js/signOut.js"></script>
-    {{/if}}
+    <header>
+        <nav>
+            <h3>
+                <a href="/">Home</a>
+            </h3>
+            <h3>
+                <a href="/dashboard">Dashboard</a>
+            </h3>
+            {{#if logged_in}}
+            <h3>
+                <button class="no-button" id="logout">Sign Out</button>
+            </h3>
+            {{else}}
+            <h3>
+                <a href="/login">Sign In</a>
+            </h3>
+            {{/if}}
+        </nav>
+    </header>
+    <main>
+        {{{ body }}}
+    </main>
 </body>
+
+{{#if logged_in}}
+<script src="/public/js/signOut.js"></script>
+{{/if}}
+
 </html>
