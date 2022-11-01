@@ -6,7 +6,7 @@ let Filter = require("bad-words"),
   filter = new Filter();
 
 router.get("/", (req, res) => {
-  console.log("-------------");
+  console.log("-----------------------");
   Note.findAll({
     attributes: ["id", "note_text", "title", "created_at"],
     order: [["created_at", "DESC"]],
