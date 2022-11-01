@@ -6,7 +6,7 @@ const mainRoutes = require('./mainRoutes');
 
 router.use('/api', apiRoutes);
 router.use('/', homepageRoutes);
-router.use('/dashboard', mainRoutes);
+router.use('/homepage', mainRoutes);
 
 
 module.exports = router;

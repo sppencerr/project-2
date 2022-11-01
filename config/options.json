@@ -1,11 +1,11 @@
 {
     "server": {
-        "port": 3306
+        "port": 3001
     },
     "mysql":{
         "host": "localhost",
         "user": "root",
-        "password": "Jazzy#24",
-        "database": "node_db"
+        "password": "",
+        "database": "minka_db"
     }
 }
