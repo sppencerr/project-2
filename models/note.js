@@ -1,6 +1,3 @@
-// ! --- Named "post.js" to "note.js" after the "notes" we'll be creating + to avoid HTTP "POST" terminology mix-ups or confusion
-
-// TODO --- feel free to change back to "post", just be sure to update other references to it elsewhere
 
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
