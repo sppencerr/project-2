@@ -1,31 +1,29 @@
-async function commentFormHandler(event) {
-    event.preventDefault();
-  
-    const comment_text = document.querySelector('textarea[name="comment-body"]').value.trim();
-  
-    const post_id = window.location.toString().split('/')[
-      window.location.toString().split('/').length - 1
-    ];
-  
-    if (comment_text) {
-        const response = await fetch('/api/comments', {
-            method: 'POST',
-            body: JSON.stringify({
-                post_id,
-                comment_text
-            }),
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        });
-        
-        if (response.ok) {
-            document.location.reload();
-        } else {
-            displayModal(response.statusText);
-            // alert(response.statusText);
-        }
-    }
-}
-  
-document.querySelector('.comment-form').addEventListener('submit', commentFormHandler);
+// Submit comment form
+const commentFormSubmit = async ( event ) => {
+	event.preventDefault();
+
+	const content = document.querySelector( '#comment-post' ).value.trim();
+	const blogpostId = document.querySelector( '#blogpostId' ).value.trim();
+
+	if ( content ) {
+		const response = await fetch( '/api/blogposts/comment', {
+			method: 'POST',
+			body: JSON.stringify( {
+				content,
+				blogpostId
+			} ),
+			headers: { 'Content-Type': 'application/json' },
+		} );
+
+		if ( response.ok ) {
+			location.reload();
+		} else {
+			alert( 'Please add text to comment before submitting' );
+		}
+	}
+};
+
+// Listen for the comment form submission
+document
+	.querySelector( '.comment-form' )
+	.addEventListener( 'submit', commentFormSubmit );
