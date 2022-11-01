@@ -2,8 +2,8 @@
 
 // TODO --- feel free to change back to "post", just be sure to update other references to it elsewhere
 
-const { Model, DataTypes } = require('sequelize');
-const sequelize = require('../config/connection');
+const { Model, DataTypes } = require("sequelize");
+const sequelize = require("../config/connection");
 
 class Note extends Model {}
 
@@ -27,8 +27,8 @@ Note.init(
     gallery_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: 'note',
-        key: 'id',
+        model: "note",
+        key: "id",
       },
     },
   },
@@ -36,7 +36,7 @@ Note.init(
     sequelize,
     freezeTableName: true,
     underscored: true,
-    modelName: 'note',
+    modelName: "note",
   }
 );
 
