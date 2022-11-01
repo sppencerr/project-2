@@ -1,26 +1,28 @@
-async function newFormHandler(event) {
-    event.preventDefault();
+const blogpostFormSubmit = async ( event ) => {
+	event.preventDefault();
 
-    const title = document.querySelector('input[name="post-title"]').value;
-    const post_text = document.querySelector('textarea[name="post-body"]').value;
+	const title = document.querySelector( '#title-new' ).value.trim();
+	const content = document.querySelector( '#content-new' ).value.trim();
 
-    const response = await fetch(`/api/posts`, {
-        method: 'POST',
-        body: JSON.stringify({
-            title,
-            post_text
-        }),
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    });
+	if ( title && content ) {
+		const response = await fetch( '/api/blogposts/', {
+			method: 'POST',
+			body: JSON.stringify( {
+				title,
+				content
+			} ),
+			headers: { 'Content-Type': 'application/json' },
+		} );
 
-    if (response.ok) {
-        document.location.replace('/dashboard');
-    } else {
-        displayModal(response.statusText);
-        // alert(response.statusText);
-    }
-}
-  
-document.querySelector('.new-post-form').addEventListener('submit', newFormHandler);
+		if ( response.ok ) {
+			document.location.replace( '/dashboard' );
+		} else {
+			alert( 'Please add title and content to blogpost before submitting' );
+		}
+	}
+};
+
+// Listen for the blogpost form submission
+document
+	.querySelector( '.post-form' )
+	.addEventListener( 'submit', blogpostFormSubmit );
