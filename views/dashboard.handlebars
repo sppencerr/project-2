@@ -1,0 +1,7 @@
+<section class="pageTitle">
+    <h1>Your Dashboard</h1>
+</section>
+{{#each notes as |note| }}
+{{> note-dashboard }}
+{{/each}}
+<a id="newNoteBtn" href="/dashboard/newpost">+ New Post</a>
