@@ -20,7 +20,7 @@ Note.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    // ? Unsure about the "references" section
+   
     gallery_id: {
       type: DataTypes.INTEGER,
       references: {
