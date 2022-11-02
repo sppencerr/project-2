@@ -1,19 +1,18 @@
 const router = require("express").Router();
-const { Note, User, Comment } = require("../../models");
+const { Post, User, Comment } = require("../../models");
 const withAuth = require("../../utils/auth");
-
 let Filter = require("bad-words"),
   filter = new Filter();
 
 router.get("/", (req, res) => {
-  console.log("-----------------------");
-  Note.findAll({
-    attributes: ["id", "note_text", "title", "created_at"],
+  console.log("======================");
+  Post.findAll({
+    attributes: ["id", "post_text", "title", "created_at"],
     order: [["created_at", "DESC"]],
     include: [
       {
         model: Comment,
-        attributes: ["id", "comment_text", "note_id", "user_id", "created_at"],
+        attributes: ["id", "comment_text", "post_id", "user_id", "created_at"],
         include: {
           model: User,
           attributes: ["username"],
@@ -25,7 +24,7 @@ router.get("/", (req, res) => {
       },
     ],
   })
-    .then((dbNoteData) => res.json(dbNoteData))
+    .then((dbPostData) => res.json(dbPostData))
     .catch((err) => {
       console.log(err);
       res.status(500).json(err);
@@ -33,15 +32,15 @@ router.get("/", (req, res) => {
 });
 
 router.get("/:id", (req, res) => {
-  Note.findOne({
+  Post.findOne({
     where: {
       id: req.params.id,
     },
-    attributes: ["id", "note_text", "title", "created_at"],
+    attributes: ["id", "post_text", "title", "created_at"],
     include: [
       {
         model: Comment,
-        attributes: ["id", "comment_text", "note_id", "user_id", "created_at"],
+        attributes: ["id", "comment_text", "post_id", "user_id", "created_at"],
         include: {
           model: User,
           attributes: ["username"],
@@ -53,12 +52,12 @@ router.get("/:id", (req, res) => {
       },
     ],
   })
-    .then((dbNoteData) => {
-      if (!dbNoteData) {
-        res.status(404).json({ message: "No note found with this id" });
+    .then((dbPostData) => {
+      if (!dbPostData) {
+        res.status(404).json({ message: "No post found with this id" });
         return;
       }
-      res.json(dbNoteData);
+      res.json(dbPostData);
     })
     .catch((err) => {
       console.log(err);
@@ -66,13 +65,13 @@ router.get("/:id", (req, res) => {
     });
 });
 
-router.note("/", withAuth, (req, res) => {
-  Note.create({
+router.post("/", withAuth, (req, res) => {
+  Post.create({
     title: filter.clean(req.body.title),
-    note_text: filter.clean(req.body.note_text),
+    post_text: filter.clean(req.body.post_text),
     user_id: req.session.user_id,
   })
-    .then((dbNoteData) => res.json(dbNoteData))
+    .then((dbPostData) => res.json(dbPostData))
     .catch((err) => {
       console.log(err);
       res.status(500).json(err);
@@ -80,7 +79,7 @@ router.note("/", withAuth, (req, res) => {
 });
 
 router.put("/:id", withAuth, (req, res) => {
-  Note.update(
+  Post.update(
     {
       title: filter.clean(req.body.title),
     },
@@ -90,12 +89,12 @@ router.put("/:id", withAuth, (req, res) => {
       },
     }
   )
-    .then((dbNoteData) => {
-      if (!dbNoteData) {
-        res.status(404).json({ message: "No note found with this id" });
+    .then((dbPostData) => {
+      if (!dbPostData) {
+        res.status(404).json({ message: "No post found with this id" });
         return;
       }
-      res.json(dbNoteData);
+      res.json(dbPostData);
     })
     .catch((err) => {
       console.log(err);
@@ -104,17 +103,17 @@ router.put("/:id", withAuth, (req, res) => {
 });
 
 router.delete("/:id", withAuth, (req, res) => {
-  Note.destroy({
+  Post.destroy({
     where: {
       id: req.params.id,
     },
   })
-    .then((dbNoteData) => {
-      if (!dbNoteData) {
-        res.status(404).json({ message: "No note found with this id" });
+    .then((dbPostData) => {
+      if (!dbPostData) {
+        res.status(404).json({ message: "No post found with this id" });
         return;
       }
-      res.json(dbNoteData);
+      res.json(dbPostData);
     })
     .catch((err) => {
       console.log(err);

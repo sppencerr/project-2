@@ -1,28 +1,24 @@
-<section class="pageTitle">
-    <h1>Your Dashboard</h1>
+<section class="edit-post-section">
+
+  <article>
+    <a href="/dashboard"> Back to Dash</a>
+  </article>
+
+  <article class="edit-post-article">
+    <h2>Edit</h2>
+    <form class="edit-post-form">
+      <div>
+        <input name="post-title" type="text" value="{{post.title}}" />
+      </div>
+      <div>
+        <input name="post-text" type="text" value="{{post.post_text}}" />
+      </div>
+      <button type="submit">Save post</button>
+      <button type="button" class="delete-post-btn">Delete post</button>
+    </form>
+  </article>
+
 </section>
 
-<div class="noteCard">
-    <div class="noteTitle">
-        <h2>Edit note</h2>
-    </div>
-    <form class="note-form">
-        <div class="form-group">
-            <label for="title-new">Title</label><br>
-            <input class="form-input" type="text" id="title-new" value="{{ note.title }}">
-        </div>
-        <div class="form-group">
-            <label for="content-new">Content</label><br>
-            <textarea name="content-new" id="content-new">{{ note.content }}</textarea>
-        </div>
-        <input type="hidden" id="noteId" name="noteId" value="{{ note.id }}">
-        <div class="form-group">
-            <button class="createNoteBtn" type="submit">Update Note</button>
-        </div>
-    </form>
-    <div class="form-group">
-        <button id="deleteNoteBtn" class="deleteNoteBtn" type="submit" value="{{ note.id }}">Delete</button>
-    </div>
-</div>
-
-<script src="/public/js/editPost.js"></script>
+<script src="/public/js/editNote.js"></script>
+<script src="/public/js/deleteNote.js"></script>

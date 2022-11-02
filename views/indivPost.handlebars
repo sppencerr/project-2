@@ -1,0 +1,21 @@
+
+{{> post-extended post}}
+
+{{#if loggedIn}}
+<form class="comment-form">
+    <h2>Add Comment</h2>
+    <div>
+        <textarea name="comment-body" placeholder="Your comment here"></textarea>
+    </div>
+
+    <div>
+        <button type="submit">Publish</button>
+    </div>
+</form>
+{{/if}}
+
+{{> comments post.comments}}
+
+{{#if loggedIn}}
+<script src="/public/js/comment.js"></script>
+{{/if}}

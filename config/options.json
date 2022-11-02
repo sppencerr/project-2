@@ -5,7 +5,7 @@
     "mysql":{
         "host": "localhost",
         "user": "root",
-        "password": "",
+        "password": "7450",
         "database": "minka_db"
     }
 }

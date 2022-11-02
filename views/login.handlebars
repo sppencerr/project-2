@@ -1,26 +1,36 @@
-<section class="pageTitle">
-    <h1>minka</h1>
-</section>
-<div class="noteCard">
-    <div class="noteTitle">
-        <h2>Login</h2>
-    </div>
+<section class="user-forms">
     <form class="login-form">
-        <div class="form-group">
-            <label for="username-signup">Username</label><br>
-            <input class="form-input" type="text" id="username-signup">
+        <h2>Sign-in Here</h2>
+        <div>
+            <label for="email-login">email:</label>
+            <input type="text" id="email-login" />
         </div>
-        <div class="form-group">
-            <label for="password-signup">Password</label><br>
-            <input class="form-input" type="password" id="password-signup">
+        <div>
+            <label for="password-login">password:</label>
+            <input type="password" id="password-login" />
         </div>
-        <div class="form-group">
-            <button class="loginBtn" type="submit">Login!</button>
+        <div>
+            <button type="submit">login</button>
         </div>
     </form>
-    <h3>
-        <a href="/signup" class="switchLoginSignup">Need to register first?</a>
-    </h3>
-</div>
 
-<script src="/public/js/signIn.js"></script>
+    <form class="signup-form">
+        <h2>Register Here</h2>
+        <div>
+            <label for="username-signup">username:</label>
+            <input type="text" id="username-signup" />
+        </div>
+        <div>
+            <label for="email-signup">email:</label>
+            <input type="text" id="email-signup" />
+        </div>
+        <div>
+            <label for="password-signup">password:</label>
+            <input type="password" id="password-signup" />
+        </div>
+        <div>
+            <button type="submit">Register</button>
+        </div>
+    </form>
+</section>
+<script src="/public/js/signOn.js"></script>

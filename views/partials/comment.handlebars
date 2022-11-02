@@ -1,7 +1,8 @@
-<div class="commentCard">
-    <div class="commentTitle">
-        <h2> </h2>
-    </div>
-    <p>{{ content }}</p>
-    <p>- {{ user.username }}, {{ formatDate dateCreated }}</p>
-</div>
+<section class="comments-section">
+    {{#each this}}
+    <article class="comment">
+        <h3>{{comment_text}}</h3>
+        <p>{{user.username}} on {{format_date created_at}}</p>
+    </article>
+    {{/each}}
+</section>

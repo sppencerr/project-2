@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { User, Note, Comment } = require("../../models");
+const { User, Post, Comment } = require("../../models");
 
 router.get("/", (req, res) => {
   User.findAll({
@@ -20,14 +20,14 @@ router.get("/:id", (req, res) => {
     },
     include: [
       {
-        model: Note,
-        attributes: ["id", "title", "note_text", "created_at"],
+        model: Post,
+        attributes: ["id", "title", "post_text", "created_at"],
       },
       {
         model: Comment,
         attributes: ["id", "comment_text", "created_at"],
         include: {
-          model: Note,
+          model: Post,
           attributes: ["title"],
         },
       },
@@ -35,7 +35,7 @@ router.get("/:id", (req, res) => {
   })
     .then((dbUserData) => {
       if (!dbUserData) {
-        res.status(404).json({ message: "No user found with this id" });
+        res.status(404).json({ message: "A user with this id was not found." });
         return;
       }
       res.json(dbUserData);
@@ -46,7 +46,7 @@ router.get("/:id", (req, res) => {
     });
 });
 
-router.note("/", (req, res) => {
+router.post("/", (req, res) => {
   User.create({
     username: req.body.username,
     email: req.body.email,
@@ -67,14 +67,14 @@ router.note("/", (req, res) => {
     });
 });
 
-router.note("/login", (req, res) => {
+router.post("/login", (req, res) => {
   User.findOne({
     where: {
       email: req.body.email,
     },
   }).then((dbUserData) => {
     if (!dbUserData) {
-      res.status(400).json({ message: "No user with that email address!" });
+      res.status(400).json({ message: "No user registered with that email address!" });
       return;
     }
 
@@ -90,12 +90,12 @@ router.note("/login", (req, res) => {
       req.session.username = dbUserData.username;
       req.session.loggedIn = true;
 
-      res.json({ user: dbUserData, message: "You are now logged in!" });
+      res.json({ user: dbUserData, message: "You are logged in" });
     });
   });
 });
 
-router.note("/logout", (req, res) => {
+router.post("/logout", (req, res) => {
   if (req.session.loggedIn) {
     req.session.destroy(() => {
       res.status(204).end();
@@ -114,7 +114,7 @@ router.put("/:id", (req, res) => {
   })
     .then((dbUserData) => {
       if (!dbUserData[0]) {
-        res.status(404).json({ message: "No user found with this id" });
+        res.status(404).json({ message: "A user with this id was not found." });
         return;
       }
       res.json(dbUserData);
@@ -133,7 +133,7 @@ router.delete("/:id", (req, res) => {
   })
     .then((dbUserData) => {
       if (!dbUserData) {
-        res.status(404).json({ message: "No user found with this id" });
+        res.status(404).json({ message: "A user with this id was not found." });
         return;
       }
       res.json(dbUserData);
