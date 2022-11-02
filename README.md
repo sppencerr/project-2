@@ -12,10 +12,10 @@
 ### Must protect API keys and sensitive information with environmental variables
 
 # Contributions
-### Each team member covered a variety of duties- ranging from database work to styling pages to file structure
+### Each team member covered a variety of duties- ranging from database work to template creation to styling our work
 
 # Technologies Used
-### Visual Studio Code, Handlebars, Express.js, Bootstrap, Node.js, Excalidraw (intial schematics), GitHub
+### Visual Studio Code, Handlebars, Express.js, Bootstrap, Node.js, Excalidraw (intial schematics), GitHub, bcrypt
 
 # Deployed Project
 
