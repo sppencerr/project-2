@@ -1,7 +1,13 @@
 {
+
   "name": "project-2",
   "version": "1.0.0",
   "description": "Best project YAH",
+
+  "name": "Minka",
+  "version": "1.0.0",
+  "description": "The People's House",
+
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
