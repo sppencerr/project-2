@@ -1,0 +1,44 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minka</title>
+    <link rel="stylesheet" href="/public/css/fancy.css">
+</head>
+
+<body id="body">
+    <div class="wrapper">
+        <header>
+            <nav>
+                <article>
+                    <a href="/"><img class="logo" alt="Dev-Den Logo" src="/public/minka_logo.webp"></a>
+                </article>
+                <article>
+                    <a class="nav-element" href="/">Home</a>
+                    {{#if loggedIn}}
+                    <a class="nav-element" href="/dashboard">Dash</a>
+                    <button id="logout" class="btn-no-style">Sign Out</button>
+                    {{else}}
+                    <a id="login" href="/login">Login</a>
+                    {{/if}}
+                </article>
+            </nav>
+        </header>
+        <main>
+            <div class="error-modal" id='error-modal' hidden="true">
+                <p class="error-text" id='error-text' hidden="true"></p>
+                <p class="close-modal" id='close-modal' hidden="true">&times;</p>
+            </div>
+            {{{ body }}}
+            <p class="footer-text">Minka © 2022</p>
+        </main>
+
+    </div>
+
+    {{#if loggedIn}}
+    <script src="/public/js/signOut.js"></script>
+    {{/if}}
+</body>
+
+</html>

@@ -1,6 +1,5 @@
-<section class="pageTitle">
-    <h1>minka</h1>
-</section>
-{{#each notes as |note| }}
-{{> note-full }}
-{{/each}}
+<section class="post-list">
+    {{#each posts as |post|}}
+        {{> post-info post }}
+    {{/each}}
+</section>>

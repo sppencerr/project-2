@@ -1,13 +1,9 @@
-// TODO --- copied over template, left in bcrypt components in the event that we'd like to implement
-// TODO --- bcrypt as our "new technology or library" feature rather than Tailwind
-
-const { Model, DataTypes } = require('sequelize');
-// const bcrypt = require('bcrypt');
-const sequelize = require('../config/connection');
+const { Model, DataTypes } = require("sequelize");
+const sequelize = require("../config/connection");
+const bcrypt = require("bcrypt");
 
 class User extends Model {
-  checkPassword(loginPw) 
-  {
+  checkPassword(loginPw) {
     return bcrypt.compareSync(loginPw, this.password);
   }
 }
@@ -36,24 +32,41 @@ User.init(
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        len: [6],
+        len: [4],
       },
+    },
+    phone_number: {
+      type: DataTypes.STRING,
+    },
+    linkedin_url: {
+      type: DataTypes.STRING,
+    },
+    github_username: {
+      type: DataTypes.STRING,
+    },
+    bio: {
+      type: DataTypes.TEXT,
     },
   },
   {
-    hooks: 
-    // ? Should we use "bcrypt" for encryption
-    // {
-    //   async beforeCreate(newUserData) {
-    //     newUserData.password = await bcrypt.hash(newUserData.password, 10);
-    //     return newUserData;
-    //   },
-    // },
+    hooks: {
+      async beforeCreate(newUserData) {
+        newUserData.password = await bcrypt.hash(newUserData.password, 10);
+        return newUserData;
+      },
+      async beforeUpdate(updatedUserData) {
+        updatedUserData.password = await bcrypt.hash(
+          updatedUserData.password,
+          10
+        );
+        return updatedUserData;
+      },
+    },
     sequelize,
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'user',
+    modelName: "user",
   }
 );
 

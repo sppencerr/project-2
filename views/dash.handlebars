@@ -1,0 +1,41 @@
+<section class="dashboard-create-post-section">
+
+  <h2>New Post</h2>
+  <form class="new-post-form">
+    <div>
+      <input
+        type="text"
+        id="post-title"
+        name="post-title"
+        placeholder="Title"
+      />
+    </div>
+    <div>
+      <textarea id="post-body" name="post-body" placeholder="Text"></textarea>
+    </div>
+    <button type="submit" class="btn">Publish</button>
+  </form>
+
+</section>
+
+{{#if posts.length}}
+  <section class="dashboard-posts-section">
+
+    <h2>Your Recent Posts</h2>
+    <article class="post">
+      {{#each posts as |post|}}
+
+        <h2>{{title}}</h2>
+        <div class="user-info">
+          <p>{{user.username}} on {{format_date created_at}}</p>
+        </div>
+        <a href="/post/{{id}}">Show Comments</a>
+        <a href="/dashboard/edit/{{post.id}}" class="edit-link">Edit</a>
+
+      {{/each}}
+    </article>
+
+  </section>
+{{/if}}
+
+<script src="/public/js/createNote.js"></script>

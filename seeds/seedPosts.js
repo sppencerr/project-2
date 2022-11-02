@@ -1,11 +1,11 @@
-const { Note } = require('../models');
+const { Post } = require('../models');
 
-const notedata = [
+const postdata = [
   {
     title: 'blank title',
     note_text: 'blank text',
     user_id: 10
   }
 ];
-const seedNotes = () => Note.bulkCreate(notedata);
+const seedNotes = () => Post.bulkCreate(postdata);
 module.exports = seedNotes;
