@@ -2,9 +2,9 @@ const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
 // inherit methods from sequelize Model
-class Comment extends Model {}
+class Vote extends Model {}
 
-Comment.init(
+Vote.init(
     // column definitions
     {
         id: {
@@ -13,14 +13,9 @@ Comment.init(
             primaryKey: true,
             autoIncrement: true
         },
-        comment_text: {
-            type: DataTypes.STRING,
-            allowNull: false
-        },
         user_id: {
             type: DataTypes.INTEGER,
             allowNull: false,
-            onDelete: 'CASCADE',
             references: {
                 model: 'user',
                 key: 'id'
@@ -29,9 +24,8 @@ Comment.init(
         post_id: {
             type: DataTypes.INTEGER,
             allowNull: false,
-            onDelete: 'CASCADE',
             references: {
-                model: 'post', 
+                model: 'post',
                 key: 'id'
             }
         }
@@ -39,10 +33,11 @@ Comment.init(
     // options
     {
         sequelize,
+        timestamps: false,
         freezeTableName: true,
         underscored: true,
-        modelName: 'comment'
+        modelName: 'vote'
     }
 );
 
-module.exports = Comment;
+module.exports = Vote;

@@ -1,0 +1,39 @@
+<section class="content-wrapper">
+    <h2 class="text-secondary">Dashboard</h2>
+
+    {{!-- new post form --}}
+    <form class="form-group new-post-form p-2 rounded">
+        <div class="form-title lead pb-1 mb-2">
+            new post
+        </div>
+        <div class="form-div">
+            <label for="post-title">title:</label>
+            <input type="text" name="post-title" id="post-title" class="form-control" />
+        </div>
+        <div class="form-div">
+            <label for="post_body">share your thoughts:</label>
+            <textarea name="post-body" id="post-body" class="form-control" rows="8"></textarea>
+        </div>
+        <div class="form-btn">
+            <button type="submit" class="btn btn-brand">submit</button>
+        </div>
+    </form>
+
+    {{!-- post section  --}}
+    <section class="post-data">
+        <h4 class="lead text-secondary mt-4">Your Posts</h3>
+        <div class="text-center user-posts">
+            {{#each posts as |post|}}
+            {{>post-card post}}
+            <div class="post-control text-right">
+                <a href="/dashboard/post/{{post.id}}" class=" btn btn-sm btn-brand clean-link">edit post</a>
+            </div>
+            {{/each}}
+        </div>
+    </section>
+</section>
+
+<script src="/public/js/new-post.js"></script>
+{{#if posts.length}}
+<script src="/public/js/post-votes.js"></script>
+{{/if}}

@@ -1,0 +1,8 @@
+<div class="wrapper">
+    {{#each this}}
+    <article class="comment pt-3 pb-1">
+        <p class="comment-author">{{this.user.username}} on {{format_date this.created_at}}</p>
+        <p class="text-muted">{{this.comment_text}}</p>
+    </article>
+    {{/each}}
+</div>

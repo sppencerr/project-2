@@ -1,5 +1,11 @@
-<section class="post-list">
-    {{#each posts as |post|}}
-        {{> post-info post }}
-    {{/each}}
-</section>>
+<section class="content-wrapper">
+    <h2 class="lead text-secondary">Recent Posts</h2>
+    <div class="text-center">
+        {{#each posts as |post|}}
+        {{>post-card post}}
+        {{/each}}
+    </div>
+</section>
+{{#if posts}}
+<script src="/public/js/post-votes.js"></script>
+{{/if}}
