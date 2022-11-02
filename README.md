@@ -1,4 +1,4 @@
-# MINKA
+# Minka
 ## Welcome to Minka - Make Yourself at Home 
 
 # Criteria
