@@ -46,7 +46,7 @@ router.get("/:id", (req, res) => {
     });
 });
 
-router.note("/", (req, res) => {
+router.post("/", (req, res) => {
   User.create({
     username: req.body.username,
     email: req.body.email,
@@ -67,7 +67,7 @@ router.note("/", (req, res) => {
     });
 });
 
-router.note("/login", (req, res) => {
+router.post("/login", (req, res) => {
   User.findOne({
     where: {
       email: req.body.email,
@@ -95,7 +95,7 @@ router.note("/login", (req, res) => {
   });
 });
 
-router.note("/logout", (req, res) => {
+router.post("/logout", (req, res) => {
   if (req.session.loggedIn) {
     req.session.destroy(() => {
       res.status(204).end();

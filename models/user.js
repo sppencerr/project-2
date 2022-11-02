@@ -1,9 +1,9 @@
 // TODO --- copied over template, left in bcrypt components in the event that we'd like to implement
 // TODO --- bcrypt as our "new technology or library" feature rather than Tailwind
 
-const { Model, DataTypes } = require('sequelize');
+const { Model, DataTypes } = require("sequelize");
 // const bcrypt = require('bcrypt');
-const sequelize = require('../config/connection');
+const sequelize = require("../config/connection");
 
 class User extends Model {
   checkPassword(loginPw) 
@@ -41,7 +41,7 @@ User.init(
     },
   },
   {
-    hooks: 
+    // hooks: 
     // ? Should we use "bcrypt" for encryption
     // {
     //   async beforeCreate(newUserData) {

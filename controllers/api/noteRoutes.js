@@ -66,7 +66,7 @@ router.get("/:id", (req, res) => {
     });
 });
 
-router.note("/", withAuth, (req, res) => {
+router.post("/", withAuth, (req, res) => {
   Note.create({
     title: filter.clean(req.body.title),
     note_text: filter.clean(req.body.note_text),
