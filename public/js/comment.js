@@ -1,19 +1,16 @@
-async function commentFormHandler(event) {
-  event.preventDefault();
-  const comment_text = document
-    .querySelector('textarea[name="comment-body"]')
-    .value.trim();
+async function commentFormHandler(e) {
+  e.preventDefault();
+
+  // get post id from url, comment text from text area value
   const post_id = window.location.toString().split("/")[
     window.location.toString().split("/").length - 1
   ];
+  const comment_text = document.querySelector("#comment-body").value.trim();
 
   if (comment_text) {
     const response = await fetch("/api/comments", {
       method: "POST",
-      body: JSON.stringify({
-        post_id,
-        comment_text,
-      }),
+      body: JSON.stringify({ comment_text, post_id }),
       headers: {
         "Content-Type": "application/json",
       },
@@ -22,8 +19,7 @@ async function commentFormHandler(event) {
     if (response.ok) {
       document.location.reload();
     } else {
-      displayModal(response.statusText);
-      // alert(response.statusText);
+      alert(response.statusText);
     }
   }
 }

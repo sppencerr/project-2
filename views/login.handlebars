@@ -1,36 +1,46 @@
-<section class="user-forms">
-    <form class="login-form">
-        <h2>Sign-in Here</h2>
-        <div>
-            <label for="email-login">email:</label>
-            <input type="text" id="email-login" />
+<div class="container">
+    <div class="row">
+        <div class="wrapper col-md-6 my-4">
+            <form class="login-form form-group p-2 rounded">
+                <div class="form-title lead pb-1 mb-2">
+                    Login in to continue your thoughts...
+                </div>
+                <div class="form-div">
+                    <label for="email-login">email:</label>
+                    <input type="text" name="email-login" id="email-login" class="form-control" />
+                </div>
+                <div class="form-div">
+                    <label for="password-login">password:</label>
+                    <input type="password" name="password-login" id="password-login" class="form-control" />
+                </div>
+                <div class="form-btn">
+                    <button type="submit" class="btn btn-brand">login</button>
+                </div>
+            </form>
         </div>
-        <div>
-            <label for="password-login">password:</label>
-            <input type="password" id="password-login" />
+        <div class="wrapper col-md-6 my-4">
+            <form class="signup-form form-group p-2 rounded">
+                <div class="form-title lead pb-1 mb-2">
+                    ...or sign up to start sharing.
+                </div>
+                <div class="form-div">
+                    <label for="username-signup">username:</label>
+                    <input type="text" name="username-signup" id="username-signup" class="form-control" />
+                </div>
+                <div class="form-div">
+                    <label for="email-signup">email:</label>
+                    <input type="text" name="email-signup" id="email-signup" class="form-control" />
+                </div>
+                <div class="form-div">
+                    <label for="password-signup">password:</label>
+                    <input type="password" name="password-signup" id="password-signup" class="form-control" />
+                </div>
+                <div class="form-btn">
+                    <button type="submit" class="btn btn-brand">signup</button>
+                </div>
+            </form>
         </div>
-        <div>
-            <button type="submit">login</button>
-        </div>
-    </form>
+    </div>
+</div>
 
-    <form class="signup-form">
-        <h2>Register Here</h2>
-        <div>
-            <label for="username-signup">username:</label>
-            <input type="text" id="username-signup" />
-        </div>
-        <div>
-            <label for="email-signup">email:</label>
-            <input type="text" id="email-signup" />
-        </div>
-        <div>
-            <label for="password-signup">password:</label>
-            <input type="password" id="password-signup" />
-        </div>
-        <div>
-            <button type="submit">Register</button>
-        </div>
-    </form>
-</section>
-<script src="/public/js/signOn.js"></script>
+<script src="/public/js/login.js"></script>

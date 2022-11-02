@@ -1,0 +1,31 @@
+<section class="content-wrapper">
+    <form class="form-group edit-post-form p-2 rounded">
+        <div class="form-title lead pb-1 mb-2">
+            edit your post
+        </div>
+        <div class="form-div">
+            <label for="edit-title">title:</label>
+            <input type="text" name="edit-title" id="edit-title" value="{{post.post_title}}" />
+        </div>
+        <div class="form-div">
+            <label for="edit-body">your thought:</label>
+            <textarea name="edit-body" id="edit-body" class="form-control" rows="8">{{post.post_body}}</textarea>
+        </div>
+        <div class="form-btn d-flex flex-row justify-content-between">
+            <div class="post-meta">
+                <p>{{post.vote_count}} {{format_plural 'point' vote_count}} | {{post.comments.length}}
+                    {{format_plural 'comment' post.comments.length}}</p>
+            </div>
+            <div>
+                <button type="button" class="btn btn-brand btn-delete">delete post</button>
+                <button type="submit" class="btn btn-brand">submit</button>
+            </div>
+        </div>
+    </form>
+
+
+    {{#if post.comments.length}}
+    {{>comments post.comments}}
+    {{/if}}
+</section>
+<script src="/public/js/edit-post.js"></script>
