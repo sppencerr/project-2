@@ -18,6 +18,8 @@
 ### Visual Studio Code, Handlebars, Express.js, Bootstrap, Node.js, Excalidraw (intial schematics), GitHub, bcrypt
 
 # Deployed Project
+https://team7minka.herokuapp.com/
 
 # Screenshot
+![image](https://user-images.githubusercontent.com/108553499/199635694-da895bf2-1f59-4376-b2fd-5acb79a75f9b.png)
 
