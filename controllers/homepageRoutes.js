@@ -32,7 +32,7 @@ router.get("/", (req, res) => {
     })
     .catch((err) => {
       console.log(err);
-      res.render("error-500");
+      res.send("error-500");
     });
 });
 
